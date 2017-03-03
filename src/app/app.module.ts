@@ -8,6 +8,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import CampaignCard from '../pages/campaign/campaign'
 import {CampaignList} from "../pages/campaign/campaign.list";
 import {CampaignAdd} from "../pages/campaign/campaign.add";
+import {Storage} from "@ionic/storage";
+import {CampaignService} from "../pages/campaign/campaign.service";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {CampaignAdd} from "../pages/campaign/campaign.add";
     CampaignAdd,
   ],
   providers: [
+    Storage,
+    CampaignService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

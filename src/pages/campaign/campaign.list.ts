@@ -7,14 +7,13 @@ import {CampaignService} from "./campaign.service";
     templateUrl: 'campaign.list.html'
 })
 export class CampaignList {
-    campaigns: Campaign[];
     filter: string;
 
-    constructor(campaignService: CampaignService) {
-        this.campaigns = campaignService.get();
+    constructor(private campaignService: CampaignService) {
     }
 
-    applyFilter() {
-        return !this.filter ? this.campaigns : this.campaigns.filter(c => c[this.filter])
+    applyFilter(): Campaign[] {
+        let campaigns = this.campaignService.get();
+        return !this.filter ? campaigns : campaigns.filter(c => c[this.filter])
     }
 }

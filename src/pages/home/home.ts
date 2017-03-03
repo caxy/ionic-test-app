@@ -9,7 +9,6 @@ import {CampaignAdd} from "../campaign/campaign.add";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [CampaignService],
 })
 export class HomePage {
   constructor(public navCtrl: NavController) {
