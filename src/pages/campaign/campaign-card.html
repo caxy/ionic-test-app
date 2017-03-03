@@ -1,0 +1,31 @@
+<ion-card>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+
+    <ion-card-content>
+        <ion-card-title>{{ campaign.title }} [{{ campaign.id }}]</ion-card-title>
+
+        <p>{{ campaign.description }}</p>
+    </ion-card-content>
+
+    <ion-row>
+        <ion-col>
+            <button ion-button icon-left clear small (click)="campaign.punt()">
+                <ion-icon name="people"></ion-icon>
+                <div>{{ campaign.punted ? 'Punted!' : 'Join!' }}</div>
+            </button>
+        </ion-col>
+
+        <ion-col>
+            <button ion-button icon-left clear small>
+                <ion-icon name="american-football"></ion-icon>
+                <div>{{ campaign.punters }} Punters</div>
+            </button>
+        </ion-col>
+
+        <ion-col center text-center>
+            <ion-note>
+                {{ campaign.mine ? 'Mine' : '&nbsp;'}}
+            </ion-note>
+        </ion-col>
+    </ion-row>
+</ion-card>

@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Add Campaign
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form #campaignForm="ngForm" (ngSubmit)="save()">
+        <ion-item>
+            <ion-label floating="">Title</ion-label>
+            <ion-input type="text" [(ngModel)]="campaign.title" name="title" #title required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating="">Description</ion-label>
+            <ion-textarea rows="8" [(ngModel)]="campaign.description" name="description"></ion-textarea>
+        </ion-item>
+
+        <button ion-button block type="submit" [disabled]="campaignForm.form.invalid">Add</button>
+        <button ion-button block (click)="close()" color="danger">Cancel</button>
+    </form>
+</ion-content>
