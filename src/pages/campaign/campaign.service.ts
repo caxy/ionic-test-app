@@ -16,7 +16,7 @@ export class CampaignService {
     boot() {
         this.storage.ready().then(() => {
             this.storage.get('campaigns').then(campaigns => {
-                this.campaigns = Array.isArray(campaigns) ? campaigns : CAMPAIGNS;
+                this.campaigns = Array.isArray(campaigns) ? campaigns : [...CAMPAIGNS];
                 this.campaigns = this.campaigns.map((c: Campaign) => new Campaign(c));
                 this.save();
                 console.log([typeof campaigns, Array.isArray(campaigns), campaigns]);

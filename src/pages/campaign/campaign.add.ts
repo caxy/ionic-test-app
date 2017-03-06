@@ -19,11 +19,11 @@ export class CampaignAdd {
     save() {
         this.campaignService
             .post(this.campaign)
-            .then(v => {this.close();})
+            .then(() => {this.close();})
         ;
     }
 
     close() {
-        this.navCtrl.push(HomePage);
+        this.navCtrl.pop();
     }
 }
