@@ -10,16 +10,16 @@ export class CampaignService {
 
     constructor(private storage: Storage) {
         this.campaigns = [];
+        this.boot();
+    }
 
+    boot() {
         this.storage.ready().then(() => {
             this.storage.get('campaigns').then(campaigns => {
+                this.campaigns = Array.isArray(campaigns) ? campaigns : CAMPAIGNS;
+                this.campaigns = this.campaigns.map((c: Campaign) => new Campaign(c));
+                this.save();
                 console.log([typeof campaigns, Array.isArray(campaigns), campaigns]);
-                if (!Array.isArray(campaigns)) {
-                    this.storage.set('campaigns', CAMPAIGNS);
-                    this.campaigns = CAMPAIGNS;
-                } else {
-                    this.campaigns = campaigns;
-                }
             });
         });
     }
@@ -30,15 +30,24 @@ export class CampaignService {
 
     post(campaign: Campaign) {
         this.campaigns.push(campaign);
-        this.storage.set('campaigns', this.campaigns);
+        return this.save();
     }
 
     create(): Campaign {
-        console.log(['campaigns length', this.campaigns.length]);
-        return new Campaign(
-            this.campaigns.length + 1,
-            null,
-            null,
-        );
+        return new Campaign({
+            id: this.campaigns.length + 1,
+            title: null,
+            description: null,
+            punters: null,
+        });
+    }
+
+    save() {
+        return this.storage.set('campaigns', this.campaigns);
+    }
+
+    punt(campaign: Campaign) {
+        campaign.punt();
+        return this.save();
     }
 }
