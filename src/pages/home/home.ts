@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
-import { NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular'
 
-import { CampaignService } from '../campaign/campaign.service'
-import Campaign from "../campaign/campaign.model";
-import {CampaignAdd} from "../campaign/campaign.add";
+import {CampaignAdd} from '../campaign/campaign.add'
 
 @Component({
   selector: 'page-home',
@@ -15,6 +13,6 @@ export class HomePage {
   }
 
   openAddCampaign() {
-    this.navCtrl.push(CampaignAdd);
+    this.navCtrl.push(CampaignAdd)
   }
 }

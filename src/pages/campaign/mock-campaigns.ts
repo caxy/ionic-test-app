@@ -1,4 +1,4 @@
-import Campaign from './campaign.model';
+import Campaign from './campaign.model'
 
 export const CAMPAIGNS: Campaign[] = [
     {id: 1, title: 'Campaign Title', description: 'Campaign Description', punters: 23},
@@ -7,4 +7,4 @@ export const CAMPAIGNS: Campaign[] = [
     {id: 4, title: 'Campaign Title', description: 'Campaign Description', punters: 43},
     {id: 5, title: 'Campaign Title', description: 'Campaign Description', punters: 12},
     {id: 6, title: 'Campaign Title', description: 'Campaign Description', punters: 99},
-];
+]
