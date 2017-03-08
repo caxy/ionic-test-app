@@ -18,8 +18,7 @@ export class CampaignAdd {
     save() {
         this.campaignService
             .post(this.campaign)
-            .then(() => {this.close()})
-
+            .then(() => this.close())
     }
 
     close() {
